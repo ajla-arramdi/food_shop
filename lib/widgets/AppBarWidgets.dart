@@ -1,132 +1,70 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:food_shop/pages/HomePage.dart';
+import 'package:food_shop/widgets/BarBawah.dart';
 
-class CategoriesWidget extends StatelessWidget {
+class Appbarwidgets extends StatelessWidget{
   @override
-  Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 15, horizontal: 5),
+  Widget build(BuildContext context){
+    return Padding(padding: EdgeInsets.symmetric(
+      vertical: 15, 
+      horizontal: 15
+        ),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-           
-           
-            // Single Item - Burger
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10),
-              child: Column(
-                children: [
-                  Container(
-                    padding: EdgeInsets.all(20),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(25),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 2,
-                          blurRadius: 10,
-                          offset: Offset(0, 3),
-                        ),
-                      ],
-                    ),
-                    child: Image.asset(
-                      "assets/burger.jpeg",
-                      width: 60,
-                      height: 60,
-                    ),
-                  ),
-                  SizedBox(height: 8),
-                  Text(
-                    'Makanan',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),
-                  ),
-                ],
+            InkWell(
+              onTap: (){},
+              child: Container(
+                padding: EdgeInsets.all(5),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey,
+                      spreadRadius: 2,
+                      blurRadius: 10,
+                      offset: Offset(0, 3),
+                    )
+                  ]
+                ),
+                child: IconButton(
+                  icon: Icon(Icons.arrow_back),
+                  onPressed: (){
+                    Navigator.push(
+                      context, MaterialPageRoute(
+                        builder: (context) => BarBawah(),
+                      ),
+                    );
+                  },
+                  )
               ),
             ),
 
-            // Single Item - Burger
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10),
-              child: Column(
-                children: [
-                  Container(
-                    padding: EdgeInsets.all(20),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(25),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 2,
-                          blurRadius: 10,
-                          offset: Offset(0, 3),
-                        ),
-                      ],
-                    ),
-                    child: Image.asset(
-                      "assets/burger.jpeg",
-                      width: 60,
-                      height: 60,
-                    ),
-                  ),
-                  SizedBox(height: 8),
-                  Text(
-                    'Minuman',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),
-                  ),
-                ],
+            InkWell(
+              onTap: (){},
+              child: Container(
+                padding: EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey,
+                      spreadRadius: 2,
+                      blurRadius: 10,
+                      offset: Offset(0, 3),
+                    )
+                  ]
+                ),
+                child: Icon(Icons.account_circle),
               ),
-            ),
+            )
 
-            // Single Item - All 
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10),
-              child: Column(
-                children: [
-                  Container(
-                    padding: EdgeInsets.all(20),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(25),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 2,
-                          blurRadius: 10,
-                          offset: Offset(0, 3),
-                        ),
-                      ],
-                    ),
-                    child: Image.asset(
-                      "assets/burger.jpeg",
-                      width: 60,
-                      height: 60,
-                    ),
-                  ),
-                  SizedBox(height: 8),
-                  Text(
-                    'Burger',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),
-                  ),
-                ],
-              ),
-            ),
           ],
         ),
-      ),
-    );
+      );
   }
+
 }

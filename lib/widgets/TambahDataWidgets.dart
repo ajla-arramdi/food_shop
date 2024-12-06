@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:food_shop/pages/HomePage.dart';
   import 'package:food_shop/widgets/AppBarWidgets2.dart';
   import 'package:image_picker/image_picker.dart';
+  import 'package:food_shop/widgets/BarBawah.dart';
+  import 'package:supabase_flutter/supabase_flutter.dart';
+
   
-  
+  final supabase = Supabase.instance.client;
 
   class Tambahdatawidgets extends StatelessWidget{
     @override
@@ -21,6 +25,8 @@ import 'package:flutter/material.dart';
   class _ProductFormState extends State<ProductForm> {
     String _katagori = 'Makanan';
     XFile? _imageFile;
+    final TextEditingController _nameController = TextEditingController();
+     final TextEditingController _priceController = TextEditingController();
 
     Future<void> _pickImage() async {
       final ImagePicker _picker = ImagePicker();
@@ -58,7 +64,8 @@ import 'package:flutter/material.dart';
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       //Nama Produk
-                      TextFormField(
+                      TextField(
+                        controller: _nameController,
                         decoration: InputDecoration(
                           labelText: 'Nama Produk',
                           hintText: 'Masukan Nama Produk',
@@ -70,7 +77,8 @@ import 'package:flutter/material.dart';
                       SizedBox(height: 30),
 
                       // Harga Field
-                    TextFormField(
+                    TextField(
+                      controller: _priceController,
                       decoration: InputDecoration(
                         labelText: 'Harga',
                         hintText: 'Masukan Harga',
@@ -128,7 +136,20 @@ import 'package:flutter/material.dart';
 
                     //Button
                     ElevatedButton(
-                      onPressed: () {
+                      onPressed: ()async {
+                        final name = _nameController.text;
+                        final price = _priceController.text;
+
+                        await supabase.from('foodaas').insert({
+                          'name': name,
+                          'price': price
+                        });
+
+                        Navigator.push(
+                          context, 
+                          MaterialPageRoute(builder: (context) => BarBawah(),
+                          ),
+                        );
                         // Handle form submission
                       },
                       style: ElevatedButton.styleFrom(

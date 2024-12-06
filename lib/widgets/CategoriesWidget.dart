@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Categorieswidget extends StatelessWidget{
+class Categorieswidgets extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(

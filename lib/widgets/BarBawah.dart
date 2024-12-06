@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food_shop/pages/AddPage.dart';
 import 'package:food_shop/pages/HomePage.dart';
 import 'package:food_shop/pages/CardPage.dart';
+import 'package:food_shop/widgets/AppBarWidgets.dart';
 
 
 
@@ -26,7 +27,7 @@ class BarBawah extends StatefulWidget {
 class _NavbarwidgetState extends State<BarBawah> {
   int _currentIndex = 0;
   final List<Widget> _children = [
-    HomePage(),
+  Homepage(),
     Cardpage(),
     Addpage(),
 
